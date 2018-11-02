@@ -1,0 +1,16 @@
+{
+  "name": "shriflux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsc",
+    "tslint": "npx tslint --project tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.1.6"
+  }
+}
