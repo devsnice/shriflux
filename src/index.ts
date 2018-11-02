@@ -1,1 +1,5 @@
-console.log("work")
+import Dispatcher from "./dispatcher";
+
+module.exports = {
+  Dispatcher
+}
