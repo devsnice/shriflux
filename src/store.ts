@@ -9,7 +9,7 @@ interface IStore {
 }
 
 interface IStoreData {
-  [index: string]: any;
+  [key: string]: any;
 }
 
 export default class Store implements IStore {
