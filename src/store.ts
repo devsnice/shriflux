@@ -1,8 +1,16 @@
 type SubscriptionId = string;
+type SubscriberCallback = () => void;
 
-export default class Store {
+interface IStore {
+  getData: () => void;
+  updateData: (updatedFieldsData: object) => object;
+  subscribe: (callback: SubscriberCallback) => SubscriptionId;
+  unsubscribe: (id: SubscriptionId) => boolean;
+}
+
+export default class Store implements IStore {
   private data: object = {};
-  private subscribers: Map<SubscriptionId, Function> = new Map();
+  private subscribers: Map<SubscriptionId, SubscriberCallback> = new Map();
   private amountSubscriptions = 0;
 
   constructor({ initialData }: { initialData: Object }) {
@@ -16,7 +24,7 @@ export default class Store {
   }
 
   private _notifySubscribers() {
-    this.subscribers.forEach((subscriberCallback: Function) => {
+    this.subscribers.forEach((subscriberCallback: SubscriberCallback) => {
       subscriberCallback();
     });
   }
@@ -36,7 +44,7 @@ export default class Store {
     return this.data;
   }
 
-  public subscribe(callback: Function): SubscriptionId {
+  public subscribe(callback: SubscriberCallback): SubscriptionId {
     const subId: SubscriptionId = this._createSubscriptionId();
 
     this.subscribers.set(subId, callback);
