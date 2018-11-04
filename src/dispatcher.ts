@@ -1,20 +1,20 @@
 import { IAction } from "./types";
 
-type StoreEffects = Function;
+type StoreEffect = Function;
 
 /**
  * The dispatcher is the central hub
  * that manages all data flow in a Flux application.
  */
 export default class Dispatcher {
-  private appStoreEffects: Array<StoreEffects> = [];
+  private effects: Array<StoreEffect> = [];
 
   /**
-   * Register storeEffects inside
-   * @param storeEffects
+   * Register storeEffect inside
+   * @param storeEffect
    */
-  public register(storeEffects: Function) {
-    this.appStoreEffects.push(storeEffects);
+  public register(storeEffect: StoreEffect) {
+    this.effects.push(storeEffect);
   }
 
   /**
@@ -24,7 +24,7 @@ export default class Dispatcher {
   public dispatch(action: IAction) {
     const { type, payload } = action;
 
-    this.appStoreEffects.forEach(effect => {
+    this.effects.forEach(effect => {
       effect(action);
     });
   }
