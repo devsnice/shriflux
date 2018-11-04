@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "module": "amd",
+    "declaration": true,
+    "declarationDir": "declarations",
+    "module": "es2015",
     "esModuleInterop": true,
     "target": "es6",
     "noImplicitAny": true,
     "moduleResolution": "node",
-    "outFile": "./index.js",
     "sourceMap": false,
     "baseUrl": ".",
     "strict": true,
     "paths": {},
-    "lib": ["es7"]
+    "lib": ["es2016"]
   },
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules/*"]
