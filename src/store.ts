@@ -8,12 +8,16 @@ interface IStore {
   unsubscribe: (id: SubscriptionId) => boolean;
 }
 
+interface IStoreData {
+  [index: string]: any;
+}
+
 export default class Store implements IStore {
-  private data: object = {};
+  private data: IStoreData = {};
   private subscribers: Map<SubscriptionId, SubscriberCallback> = new Map();
   private amountSubscriptions = 0;
 
-  constructor({ initialData }: { initialData: Object }) {
+  constructor({ initialData }: { initialData: IStoreData }) {
     this.data = initialData;
   }
 
@@ -29,11 +33,11 @@ export default class Store implements IStore {
     });
   }
 
-  public getData(): object {
+  public getData(): IStoreData {
     return this.data;
   }
 
-  public updateData(updatedFieldsData: object): object {
+  public updateData(updatedFieldsData: object): IStoreData {
     this.data = {
       ...this.data,
       ...updatedFieldsData

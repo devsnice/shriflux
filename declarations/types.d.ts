@@ -4,3 +4,4 @@ export interface IAction {
         [key: string]: any;
     };
 }
+export declare type StoreEffect = (action: IAction) => void;

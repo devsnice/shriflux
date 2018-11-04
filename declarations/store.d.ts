@@ -6,17 +6,20 @@ interface IStore {
     subscribe: (callback: SubscriberCallback) => SubscriptionId;
     unsubscribe: (id: SubscriptionId) => boolean;
 }
+interface IStoreData {
+    [index: string]: any;
+}
 export default class Store implements IStore {
     private data;
     private subscribers;
     private amountSubscriptions;
     constructor({ initialData }: {
-        initialData: Object;
+        initialData: IStoreData;
     });
     private _createSubscriptionId;
     private _notifySubscribers;
-    getData(): object;
-    updateData(updatedFieldsData: object): object;
+    getData(): IStoreData;
+    updateData(updatedFieldsData: object): IStoreData;
     subscribe(callback: SubscriberCallback): SubscriptionId;
     unsubscribe(id: SubscriptionId): boolean;
 }

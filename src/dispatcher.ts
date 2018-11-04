@@ -1,6 +1,4 @@
-import { IAction } from "./types";
-
-type StoreEffect = (action: IAction) => void;
+import { IAction, StoreEffect } from "./types";
 
 /**
  * The dispatcher is the central hub
