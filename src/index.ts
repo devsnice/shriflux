@@ -1,5 +1,5 @@
 import Dispatcher from "./dispatcher";
+import Store from "./store";
+import * as Types from "./types";
 
-module.exports = {
-  Dispatcher
-}
+export { Dispatcher, Store, Types };

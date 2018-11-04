@@ -1,4 +1,6 @@
 export interface IAction {
   type: string;
-  payload: object;
+  payload: {
+    [key: string]: any;
+  };
 }
