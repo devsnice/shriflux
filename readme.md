@@ -1,5 +1,7 @@
 ## Shriflux - Simple flux implementation
 
+[![Build Status](https://travis-ci.org/devsnice/shriflux.svg?branch=master)](https://travis-ci.org/devsnice/shriflux)
+
 ## Flux
 
 ```
